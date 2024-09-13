@@ -7,6 +7,7 @@ import {
 
 import { createGoal } from '../use-cases/create-goal';
 import z from 'zod';
+import { getWeekPendingGoals } from '../use-cases/get-week-pending-goals';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -32,6 +33,12 @@ app.post(
     });
   }
 );
+
+app.get('/pending-goals', async request => {
+  const { pendingGoals } = await getWeekPendingGoals();
+
+  return { pendingGoals };
+});
 
 app
   .listen({
