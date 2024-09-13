@@ -6,7 +6,7 @@ import { and, count, gte, lte, eq, sql } from 'drizzle-orm';
 
 dayjs.extend(weekOfYear);
 
-export async function getWeekPendingGoals() {
+export async function getWeekPendingGoalsUseCase() {
   const firstDayOfWeek = dayjs().startOf('week').toDate();
   const lastDayOfWeek = dayjs().endOf('week').toDate();
 

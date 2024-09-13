@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod';
-import { createGoal } from '../../use-cases/create-goal';
+import { createGoalUseCase } from '../../use-cases/create-goal';
 
 export const createGoalRoute: FastifyPluginAsyncZod = async app => {
   app.post(
@@ -16,7 +16,7 @@ export const createGoalRoute: FastifyPluginAsyncZod = async app => {
     async request => {
       const { title, desiredWeeklyFrequency } = request.body;
 
-      await createGoal({
+      await createGoalUseCase({
         title,
         desiredWeeklyFrequency,
       });
