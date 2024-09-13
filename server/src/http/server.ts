@@ -1,6 +1,6 @@
-import fastify from 'fastify'
+import fastify from 'fastify';
 
-const app = fastify()
+const app = fastify();
 
 app
   .listen({
@@ -8,5 +8,6 @@ app
     host: '0.0.0.0',
   })
   .then(() => {
-    console.log('⭐ Server is running ⭐')
-  })
+    console.log(process.env.DATABASE_URL);
+    console.log('⭐ Server is running ⭐');
+  });
