@@ -8,8 +8,13 @@ import { createGoalRoute } from './routes/create-goal.routes';
 import { createGoalCompletionRoute } from './routes/create-goal-completion.routes';
 import { getPendingGoalRoute } from './routes/get-pending-goal..routes';
 import { getWeeKSummaryRoute } from './routes/get-week-summary.routes';
+import fastifyCors from '@fastify/cors';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
+
+app.register(fastifyCors, {
+  origin: '*',
+});
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
@@ -22,7 +27,6 @@ app.register(getWeeKSummaryRoute);
 app
   .listen({
     port: 3333,
-    host: '0.0.0.0',
   })
   .then(() => {
     console.log('⭐ Server is running ⭐');
