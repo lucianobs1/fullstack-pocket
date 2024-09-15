@@ -13,7 +13,7 @@
       "arrowParentheses": "asNeeded",
       "jsxQuoteStyle": "double",
       "quoteStyle": "single",
-      "semicolons": "always",
+      "semicolons": "asNeeded",
       "trailingCommas": "es5"
     }
   },
@@ -21,13 +21,14 @@
     "enabled": true,
     "rules": {
       "recommended": true,
-      "no-label-without-control": false,
       "style": {
         "noNonNullAssertion": "off"
-      },
+      }
     }
   },
   "files": {
-    "ignore": ["node_modules"]
+    "ignore": [
+      "node_modules"
+    ]
   }
 }
